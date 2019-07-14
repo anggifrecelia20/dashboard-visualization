@@ -1,0 +1,180 @@
+<div class="ui fluid container m-t-md p-x-lg m-b-xl">
+  <div class="ui grid">
+    <div class="four wide column">
+      <h1 class="ui header text-grey">Dashboard</h1>
+    </div>
+    <div class="twelve wide column">
+      <div class="fr">
+        <div id="reportrange" class="text-grey date-range">
+          <i class="calendar alternate outline icon"></i> Period
+          <span class="m-x-sm"></span> <i class="chevron down icon" style="margin:0"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui inverted green segment">
+    <div>
+      <span class="text-bold">MARKET INSIGHT</span>
+      <i class="chevron up icon fr"></i>
+      <span class="text-13 text-underline m-r-xs fr">Click Here for Help</span>
+      <i class="lightbulb outline icon fr"></i>
+    </div>
+  </div>
+  <div class="ui card">
+    <div class="content">
+      <i class="right floated ellipsis vertical icon text-grey"></i>
+      <div class="text-grey">Sales Turnover</div>
+    </div>
+    <div class="extra content">
+      <img class="right floated mini ui image" src="assets/img/Sales Turnover.png">
+      <div class="header">
+        {{ 3600000 | currency:'Rp ':0 }}
+      </div>
+      <div class="meta">
+        <span class="text-13 text-red text-bold">&darr; 13.8%</span>
+        <span class="text-13">last period in products sold</span>
+      </div>
+    </div>
+  </div>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui fluid card">
+        <div class="content">
+          <i class="right floated ellipsis vertical icon text-grey m-t-xs"></i>
+          <div class="right floated m-r-xs">
+            <ui-select ng-model="filter.period_id" ng-change="changePeriod(filter.period_id)">
+              <ui-select-match placeholder="Period">{{ $select.selected.name }}</ui-select-match>
+              <ui-select-choices repeat="p.id as p in periods | filter: $select.search">
+                <span ng-bind-html="p.name | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <div class="header text-grey m-t-xs">AVERAGE PURCHASE VALUE</div>
+        </div>
+        <div class="content">
+          <div id="chartdiv"></div>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column">
+      <div class="ui fluid card">
+        <div class="content">
+          <i class="right floated ellipsis vertical icon text-grey"></i>
+          <div class="header text-grey">BEST SELLING SKU</div>
+        </div>
+        <div class="content">
+          <div class="ui items">
+            <div class="item highlight">
+              <a class="ui tiny image">
+                <img src="assets/img/img1.jpg">
+              </a>
+              <div class="content">
+                <a class="header m-t-sm">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img2.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img2.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img2.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column">
+      <div class="ui fluid card">
+        <div class="content">
+          <i class="right floated ellipsis vertical icon text-grey"></i>
+          <div class="header text-grey">TOP COMPETITOR SKU</div>
+        </div>
+        <div class="content">
+          <div class="ui items">
+            <div class="item highlight">
+              <a class="ui tiny image">
+                <img src="assets/img/img3.jpg">
+              </a>
+              <div class="content">
+                <a class="header m-t-sm">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img3.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img3.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <a class="ui mini-md image">
+                <img src="assets/img/img3.jpg">
+              </a>
+              <div class="content">
+                <a class="ui small header m-t-xs">[Nama Product]</a>
+                <div class="meta">
+                  <span>Rp XXX</span>
+                  <span class="fr m-r-sm">[jml terjual]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
